@@ -6,11 +6,29 @@ import RevealOnScroll from "../components/RevealOnScroll"
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" })
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    alert("Thank you for reaching out! I will get back to you soon.")
-    setFormData({ name: "", email: "", subject: "", message: "" })
+    setStatus("sending")
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setStatus("success")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        setStatus("error")
+      }
+    } catch (error) {
+      console.error(error)
+      setStatus("error")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -67,8 +85,28 @@ export default function Contact() {
                 <label className="block text-sm font-mono text-white/60 mb-2">Message</label>
                 <textarea name="message" value={formData.message} onChange={handleChange} rows={5} required className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-accent focus:outline-none transition-colors text-white placeholder-white/20 resize-none" placeholder="Tell me about your project..." />
               </div>
-              <button type="submit" className="w-full py-4 bg-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-accent/30 transition-all flex items-center justify-center gap-2 group">
-                Send Message <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+
+              {status === "success" && (
+                <div className="px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm text-center">
+                  Message sent successfully! I will get back to you soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">
+                  Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full py-4 bg-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-accent/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {status === "sending" ? (
+                  <>Sending...</>
+                ) : (
+                  <>Send Message <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                )}
               </button>
             </form>
           </div>

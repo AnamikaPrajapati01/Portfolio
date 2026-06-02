@@ -1,3 +1,4 @@
+"use client"
 import { Monitor, Server, Database, Smartphone, Brain, Wrench } from "lucide-react"
 import RevealOnScroll from "../components/RevealOnScroll"
 

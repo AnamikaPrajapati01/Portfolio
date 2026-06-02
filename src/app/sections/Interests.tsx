@@ -1,3 +1,4 @@
+"use client"
 import { Code, Smartphone, FlaskConical, Sparkles } from "lucide-react"
 import RevealOnScroll from "../components/RevealOnScroll"
 

@@ -1,3 +1,4 @@
+"use client"
 import RevealOnScroll from "../components/RevealOnScroll"
 
 const education = [
