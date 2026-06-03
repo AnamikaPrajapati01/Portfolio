@@ -1,75 +1,116 @@
-import RevealOnScroll from "../components/RevealOnScroll"
-import ProjectCard from "../components/ProjectCard"
+"use client"
 
-const projects = [
-  {
-    image: "/hekto.webp",
-    title: "Hekto",
-    category: "E-Commerce",
-    description:
-      "Full-stack e-commerce platform with React.js frontend, Node.js/Express REST API, JWT authentication, role-based access, and Cloudinary integration.",
-    tags: ["React", "Node.js", "MongoDB"],
-    color: "#22d3ee",
-    gradient: "from-accent/20 to-coral/20",
-    liveDemo: "https://hekto-ecommerce-nepal.onrender.com/",
-    github: "https://github.com/AnamikaPrajapati01/hekto-ecommerce-Nepal",
-  },
-  {
-    image: "/linkmate.jpg",
-    title: "LinkMates",
-    category: "Real-Time",
-    description:
-      "Real-time chat application using Socket.io with separate chat rooms, live status updates, and delivery tracking.",
-    tags: ["Socket.io", "Node.js", "Express"],
-    color: "#f472b6",
-    gradient: "from-coral/20 to-gold/20",
-    liveDemo: "https://realtime-chatapplication-gn97.onrender.com/login",
-    github: "https://github.com/AnamikaPrajapati01/RealTime_Chat_Application",
-  },
-  {
-    image: "/interview.jpg",
-    title: "Interview AI",
-    category: "AI-Powered",
-    description:
-      "AI-powered career prep platform using Google Gemini. Includes CV improvement, ATS scoring, and interview preparation tools.",
-    tags: ["Gemini API", "React", "PDF Parse"],
-    color: "#a855f7",
-    gradient: "from-purple-400/20 to-accent/20",
-    liveDemo: "",
-    github: "https://github.com/AnamikaPrajapati01/Interview_AI",
-  },
-]
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { ExternalLink, Github } from "lucide-react"
 
-export default function Projects() {
+interface ProjectCardProps {
+  title: string
+  category: string
+  description: string
+  tags: string[]
+  color: string
+  gradient?: string
+  icon?: any
+
+  image?: string
+  liveDemo?: string
+  github?: string
+}
+
+export default function ProjectCard({
+  title,
+  category,
+  description,
+  tags,
+  color,
+  gradient,
+  icon: Icon,
+  image,
+  liveDemo,
+  github
+}: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
-    <section id="projects" className="py-32 relative">
-      <div className="max-w-7xl mx-auto px-6">
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.4 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
 
-        {/* Header */}
-        <RevealOnScroll className="text-center mb-16">
-          <div className="inline-block px-4 py-2 rounded-full glass text-accent font-mono text-sm mb-6">
-            03. Featured Work
+        {/* IMAGE / ICON AREA */}
+        <div className="relative aspect-[16/10] flex items-center justify-center">
+          {image ? (
+            <motion.img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+              animate={{ scale: isHovered ? 1.05 : 1 }}
+            />
+          ) : Icon ? (
+            <Icon className="w-16 h-16 text-white/70" />
+          ) : (
+            <div className="text-white/40">No Preview</div>
+          )}
+
+          <div className="absolute top-3 right-3">
+            <span
+              className="px-2 py-1 text-[11px] rounded-full border"
+              style={{
+                color,
+                borderColor: `${color}40`
+              }}
+            >
+              {category}
+            </span>
           </div>
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-gradient">Projects</span>
-          </h2>
-
-          <p className="text-white/40 max-w-2xl mx-auto">
-            Showcasing my best full-stack and AI-powered projects
-          </p>
-        </RevealOnScroll>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <RevealOnScroll key={project.title} delay={index * 0.15}>
-              <ProjectCard {...project} />
-            </RevealOnScroll>
-          ))}
         </div>
 
+        {/* CONTENT */}
+        <div className="p-5">
+          <h3 className="text-white font-semibold text-lg">{title}</h3>
+          <p className="text-white/50 text-sm mt-2">{description}</p>
+
+          <div className="flex flex-wrap gap-2 mt-3">
+            {tags.map((t) => (
+              <span
+                key={t}
+                className="text-xs text-white/40 bg-white/5 px-2 py-1 rounded"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          {/* BUTTONS */}
+          <div className="flex gap-3 mt-4">
+            {liveDemo ? (
+              <a
+                href={liveDemo}
+                className="text-sm flex items-center gap-1 text-cyan-400"
+              >
+                <ExternalLink size={14} />
+                Live
+              </a>
+            ) : (
+              <span className="text-white/30 text-sm">Coming Soon</span>
+            )}
+
+            {github && (
+              <a
+                href={github}
+                className="text-sm flex items-center gap-1 text-white/60"
+              >
+                <Github size={14} />
+                Code
+              </a>
+            )}
+          </div>
+        </div>
       </div>
-    </section>
+    </motion.div>
   )
 }
