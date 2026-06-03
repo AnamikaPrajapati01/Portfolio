@@ -10,8 +10,8 @@ const projects = [
     description:
       "Full-stack e-commerce platform with React.js frontend, Node.js/Express REST API, JWT authentication, role-based access, and Cloudinary integration.",
     tags: ["React", "Node.js", "MongoDB"],
-    color: "accent",
-    gradient: "from-accent/20 to-coral/20",
+    color: "#06b6d4",
+    gradient: "from-cyan-500/20 to-red-400/20",
   },
   {
     icon: MessageSquare,
@@ -20,8 +20,8 @@ const projects = [
     description:
       "Real-time chat application using Socket.io with separate message rooms, live status updates, and real-time delivery tracking.",
     tags: ["Socket.io", "Node.js", "Express"],
-    color: "coral",
-    gradient: "from-coral/20 to-gold/20",
+    color: "#f87171",
+    gradient: "from-red-400/20 to-yellow-400/20",
   },
   {
     icon: Sparkles,
@@ -30,8 +30,8 @@ const projects = [
     description:
       "AI-powered career prep platform using Google Gemini. Features CV improvement, ATS scoring, weakness detection, and personalized interview preparation.",
     tags: ["Gemini API", "React", "PDF Parse"],
-    color: "purple-400",
-    gradient: "from-purple-400/20 to-accent/20",
+    color: "#c084fc",
+    gradient: "from-purple-400/20 to-cyan-500/20",
   },
 ]
 
