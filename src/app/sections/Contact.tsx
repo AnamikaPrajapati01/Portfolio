@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Send, Linkedin } from "lucide-react"
 import RevealOnScroll from "../components/RevealOnScroll"
 
 export default function Contact() {
@@ -51,11 +51,11 @@ export default function Contact() {
               <h4 className="font-semibold mb-1">Email</h4>
               <p className="text-white/40 text-sm">subiprajapati5@gmail.com</p>
             </a>
-            <div className="glass rounded-2xl p-6 hover:border-coral/30 transition-all group">
-              <div className="w-12 h-12 rounded-full bg-coral/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-coral/20 transition-colors"><Phone className="w-6 h-6 text-coral" /></div>
-              <h4 className="font-semibold mb-1">Phone</h4>
-              <p className="text-white/40 text-sm">+977 9767563658</p>
-            </div>
+            <a href="https://www.linkedin.com/in/anamika-prajapati-989007321/" target="_blank" rel="noopener noreferrer" className="glass rounded-2xl p-6 hover:border-coral/30 transition-all group">
+              <div className="w-12 h-12 rounded-full bg-coral/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-coral/20 transition-colors"><Linkedin className="w-6 h-6 text-coral" /></div>
+              <h4 className="font-semibold mb-1">LinkedIn</h4>
+              <p className="text-white/40 text-sm">linkedin.com/in/anamika-prajapati-989007321</p>
+            </a>
             <div className="glass rounded-2xl p-6 hover:border-gold/30 transition-all group">
               <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/20 transition-colors"><MapPin className="w-6 h-6 text-gold" /></div>
               <h4 className="font-semibold mb-1">Location</h4>
