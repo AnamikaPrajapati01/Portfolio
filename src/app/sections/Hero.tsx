@@ -145,7 +145,7 @@ export default function Hero() {
             <div className="absolute inset-4 glass-strong rounded-full overflow-hidden">
               <img
                 src="/anamika.jpeg"
-                alt="Anamika Prajapati"
+                alt="Anamika Prajapati — Full Stack Developer based in Kathmandu, Nepal"
                 className="w-full h-full object-cover object-center"
               />
             </div>

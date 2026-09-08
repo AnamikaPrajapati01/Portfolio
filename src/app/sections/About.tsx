@@ -503,20 +503,26 @@ export default function About() {
               </motion.div>
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]">
-                <TypewriterText 
-                  text="Building digital" 
-                  className="block text-white/90"
-                />
-                <TypewriterText 
-                  text="experiences that" 
-                  delay={800}
-                  className="block text-white/90"
-                />
-                <TypewriterText 
-                  text="matter." 
-                  delay={1600}
-                  className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-                />
+                {/* Static fallback for SSR / SEO — hidden visually but present in the DOM */}
+                <span className="sr-only">About Me — Building digital experiences that matter.</span>
+
+                {/* Animated typewriter spans, hidden from screen readers since the static text above covers them */}
+                <span aria-hidden="true">
+                  <TypewriterText 
+                    text="Building digital" 
+                    className="block text-white/90"
+                  />
+                  <TypewriterText 
+                    text="experiences that" 
+                    delay={800}
+                    className="block text-white/90"
+                  />
+                  <TypewriterText 
+                    text="matter." 
+                    delay={1600}
+                    className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+                  />
+                </span>
               </h2>
             </div>
 

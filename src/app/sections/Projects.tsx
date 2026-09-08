@@ -71,7 +71,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="relative aspect-[16/10] overflow-hidden">
           <motion.img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} — ${project.category} project by Anamika Prajapati`}
             className="w-full h-full object-cover"
             animate={{ scale: isHovered ? 1.03 : 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

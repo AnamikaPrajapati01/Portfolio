@@ -45,7 +45,7 @@ export default function Certificates() {
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={cert.image}
-                      alt={cert.title}
+                      alt={`${cert.title} certificate — ${cert.desc}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-black/20" />
