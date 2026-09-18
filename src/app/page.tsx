@@ -9,6 +9,7 @@ import Education from "./sections/Education"
 import Certificates from "./sections/Certificates"
 import Interests from "./sections/Interests"
 import Contact from "./sections/Contact"
+import Experience from "./sections/Experience"
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <Education />
         <Certificates />
+        <Experience />
         <Interests />
         <Contact />
       </main>
