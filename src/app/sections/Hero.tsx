@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const phrases = [
   "Full Stack Developer",
   "Mern Stack Developer",
-  "AI Integration Specialist",
+  // "AI Integration Specialist",
   "IoT Enthusiast",
 ];
 
