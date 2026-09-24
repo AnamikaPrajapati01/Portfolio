@@ -17,21 +17,18 @@ const interests = [
     label: "Mobile Development",
     description: "Cross-platform apps with React Native that feel native on every device.",
     color: "#f472b6",
-    projects: "2+ Apps",
   },
   {
     icon: FlaskConical,
     label: "IoT Systems",
     description: "Connecting hardware to software through embedded systems and networking.",
     color: "#34d399",
-    projects: "3+ Devices",
   },
   {
     icon: Sparkles,
     label: "AI Integration",
     description: "Leveraging Gemini API and prompt engineering for intelligent applications.",
     color: "#fbbf24",
-    projects: "2+ Integrations",
   },
 ]
 

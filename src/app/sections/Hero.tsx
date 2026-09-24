@@ -86,7 +86,7 @@ export default function Hero() {
 
           <p className="text-lg text-white/60 max-w-lg leading-relaxed">
             Crafting digital experiences with code and creativity. Full Stack
-            Developer specializing in modern web technologies, AI integration,
+            Developer specializing in modern web technologies,
             and IoT systems.
           </p>
 
